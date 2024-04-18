@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+</head>
+<body>
+    <div>
+        <h1>User Details</h1>
+
+        {% if user.profile_photo %}
+            <img src="{{ user.profile_photo.url }}" alt="Profile Photo" style="width: 150px; height: 150px; border-radius: 75px;">
+        {% else %}
+            <img src="{% static 'images/default-image.png' %}" style="width: 150px; height: 150px; border-radius: 75px;">
+        {% endif %}
+
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>First Name:</strong> {{ user.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+        <p><strong>Phone:</strong> {{ user.phone_country_code }} {{ user.phone_number }}</p>
+    </div>
+</body>
+</html>
